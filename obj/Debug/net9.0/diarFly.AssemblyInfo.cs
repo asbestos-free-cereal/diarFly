@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("diarFly")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+644f1c587c2fa6c07750fdacff02639be82571da")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+74a8f86142a2452a7ba479a57d8f433333832c64")]
 [assembly: System.Reflection.AssemblyProductAttribute("diarFly")]
 [assembly: System.Reflection.AssemblyTitleAttribute("diarFly")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
