@@ -5,5 +5,29 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="diarFly.MainWindow"
         Title="diarFly">
-    Welcome to Avalonia!
+    
+    <Panel  >
+        
+        <Panel.Background>
+            <LinearGradientBrush StartPoint="10%,50%" EndPoint="100%,90%">
+                <GradientStop Color="#6a11cb" Offset="0,0"/>
+                <GradientStop Color="#2575fc" Offset="1,0"/>
+
+           
+            </LinearGradientBrush>
+        </Panel.Background>
+     
+            <StackPanel >
+                <Label Foreground="White" FontSize="30" FontWeight="Bold">Your stats:</Label>
+ <Panel>
+     <StackPanel>
+     <Label Foreground="White">FLIGHTS</Label>  
+     <TextBlock Foreground="White" Name="Flights">n/a</TextBlock> 
+
+           </StackPanel>
+ 
+ </Panel>
+            </StackPanel>
+ 
+    </Panel>
 </Window>
