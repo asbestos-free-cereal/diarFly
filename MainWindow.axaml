@@ -6,27 +6,51 @@
         x:Class="diarFly.MainWindow"
         Title="diarFly">
 
-    <Panel>
 
-        <Panel.Background>
-            <LinearGradientBrush StartPoint="10%,50%" EndPoint="100%,90%">
-                <GradientStop Color="#6a11cb" Offset="0,0" />
-                <GradientStop Color="#2575fc" Offset="1,0" />
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_New Flight" Click="OpenNewWindow" />
+            </MenuItem>
+        </Menu>
+        <TextBlock />
 
 
-            </LinearGradientBrush>
-        </Panel.Background>
+        <Panel>
 
-        <StackPanel>
-            <Label Foreground="White" FontSize="30" FontWeight="Bold">Your stats:</Label>
-            <Panel>
-                <StackPanel>
-                    <Label Foreground="White">FLIGHTS</Label>
-                    <TextBlock Foreground="White" Name="Flights">n/a</TextBlock>
-                </StackPanel>
-            </Panel>
+            <Panel.Background>
+                <LinearGradientBrush StartPoint="10%,50%" EndPoint="100%,90%">
+                    <GradientStop Color="#6a11cb" Offset="0,0" />
+                    <GradientStop Color="#2575fc" Offset="1,0" />
 
-        </StackPanel>
 
-    </Panel>
+                </LinearGradientBrush>
+            </Panel.Background>
+
+            <StackPanel>
+                <Label Foreground="White" FontSize="30" FontWeight="Bold">Your stats:</Label>
+                <Panel>
+                    <StackPanel>
+                        <Label Foreground="White">FLIGHTS</Label>
+                        <TextBlock Foreground="White" Name="Flights">n/a</TextBlock>
+
+                        <Label Foreground="White">Top Airline</Label>
+                        <TextBlock Foreground="White" Name="TopAirline">n/a</TextBlock>
+
+                        <Label Foreground="White">Top Aircraft</Label>
+                        <TextBlock Foreground="White" Name="TopAircraft">n/a</TextBlock>
+
+                        <Label Foreground="White">Top Destination</Label>
+                        <TextBlock Foreground="White" Name="TopDestination">n/a</TextBlock>
+
+
+                        <Label Foreground="White">Your Flight History</Label>
+                        <ListBox x:Name="History" />
+                    </StackPanel>
+                </Panel>
+
+            </StackPanel>
+
+        </Panel>
+    </DockPanel>
 </Window>

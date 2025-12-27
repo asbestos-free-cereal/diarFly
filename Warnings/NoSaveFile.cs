@@ -1,37 +1,53 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Text.Json;
 using Avalonia.Controls;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Enums;
 
 namespace diarFly
 {
-    public class Warnings
+    public class NoSaveFileWarning
     {
-        public async void ShowWarning()
+        public async void ShowWarning(Window Owner)
         {
-            var box = MessageBoxManager
+            var Box = MessageBoxManager
                 .GetMessageBoxStandard("Warning", "Couldn't find a file containing your data. New one will be created.",
-                    ButtonEnum.OkAbort, MsBox.Avalonia.Enums.Icon.Error);
+                    ButtonEnum.OkCancel, MsBox.Avalonia.Enums.Icon.Error);
 
-            var result = await box.ShowAsync();
-            if (result == ButtonResult.Abort)
+            var Result = await Box.ShowAsPopupAsync(Owner);
+            ;
+
+            if (Result == ButtonResult.Cancel)
             {
                 System.Environment.Exit(0);
             }
-            else if (result == ButtonResult.Ok)
-            {
-                Console.WriteLine("test");
-                string exePath = Process.GetCurrentProcess().MainModule.FileName;
-                //TODO tworzenie pliku zapisu
 
+            else if (Result == ButtonResult.Ok)
+            {
+                string exePath = Process.GetCurrentProcess().MainModule.FileName;
+
+                var Temp = new FlightStatsStruct
+                {
+                    Flights = 0,
+                    FlightsList = new List<FlightInfo>
+                    {
+                        new FlightInfo("", "", "", "", "")
+                    }
+                };
+                var Json = JsonSerializer.Serialize(Temp);
+                var Path = new SaveFilePath();
+                File.WriteAllText(Path.Get(), Json);
                 var Info = MessageBoxManager
                     .GetMessageBoxStandard("Info", "The application will now restart.", ButtonEnum.Ok,
                         MsBox.Avalonia.Enums.Icon.Info);
 
-                var result2 = await Info.ShowAsync();
-                if (result2 == ButtonResult.Ok)
+                Result = await Info.ShowAsPopupAsync(Owner);
+                if (Result == ButtonResult.Ok)
                 {
+                    Console.WriteLine("Restart");
                     Process.Start(new ProcessStartInfo(exePath) { UseShellExecute = true });
                     Environment.Exit(0);
                 }

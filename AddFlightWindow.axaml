@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="diarFly.AddFlightWindow"
+        Title="AddFlightWindow">
+
+
+    <StackPanel Margin="10 0">
+        <Label FontSize="20" FontWeight="Bold">New flight details:</Label>
+        <Panel>
+            <StackPanel>
+
+                <TextBlock Margin="1 5">Date:</TextBlock>
+                <CalendarDatePicker x:Name="FlightDate" />
+
+                <TextBlock Margin="1 5">Plane:</TextBlock>
+                <TextBox x:Name="Plane" />
+
+                <TextBlock Margin="1 5">Airline:</TextBlock>
+                <TextBox x:Name="Airline" />
+
+                <TextBlock Margin="1 5">From:</TextBlock>
+                <TextBox x:Name="From" />
+
+                <TextBlock Margin="1 5">To:</TextBlock>
+                <TextBox x:Name="To" />
+
+                <Button Margin="1 30" Click="SaveData">Save</Button>
+            </StackPanel>
+        </Panel>
+
+    </StackPanel>
+
+
+</Window>

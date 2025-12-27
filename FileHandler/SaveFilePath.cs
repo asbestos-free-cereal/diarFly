@@ -7,12 +7,10 @@ public class SaveFilePath
 {
     public string Get()
     {
-
-
         string Path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 
 
-        if (OperatingSystem.IsLinux() || OperatingSystem.IsMacOS()|| OperatingSystem.IsFreeBSD())
+        if (OperatingSystem.IsLinux() || OperatingSystem.IsMacOS() || OperatingSystem.IsFreeBSD())
         {
             Path += "/DiarFlySave.json";
         }
@@ -20,7 +18,7 @@ public class SaveFilePath
         {
             Path += @"\DiarFlySave.json";
         }
-        
+
         return Path;
     }
 
