@@ -1,3 +1,4 @@
+using System;
 using Avalonia.Controls;
 using System.Text.Json;
 using System.IO;
@@ -12,6 +13,7 @@ public partial class MainWindow : Window
 
     {
         InitializeComponent();
+       
     }
 
     private void OpenNewWindow(object sender, RoutedEventArgs e)
@@ -21,6 +23,19 @@ public partial class MainWindow : Window
         Window.ShowDialog(OwnerWindow);
     }
 
+    private void Clear(object sender, RoutedEventArgs e)
+    {
+        var Warning = new ClearHistory();
+        var OwnerWindow = this;
+        Warning.ShowWarning(OwnerWindow);
+    }
+
+    private void Show(object sender, RoutedEventArgs e)
+    {
+        var SaveFile = new SaveFilePath();
+        Launcher.LaunchUriAsync(new Uri(SaveFile.Get()));
+    }
+    
     protected override void OnLoaded(RoutedEventArgs e)
     {
         var SaveFile = new SaveFilePath();

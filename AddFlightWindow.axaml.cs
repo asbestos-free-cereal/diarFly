@@ -19,8 +19,6 @@ public partial class AddFlightWindow : Window
         if (Temp != null && Plane.Text != "" && To.Text != "" && From.Text != "" && Airline.Text != "")
         {
             string Date = Temp.ToString().Remove(10);
-            // Console.WriteLine(Date);
-            // Console.WriteLine(To.Text);
             var SaveFile = new SaveFilePath();
             string JsonData = File.ReadAllText(SaveFile.Get());
             var Stats = JsonSerializer.Deserialize<FlightStatsStruct>(JsonData);
