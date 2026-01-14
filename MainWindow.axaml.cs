@@ -13,7 +13,6 @@ public partial class MainWindow : Window
 
     {
         InitializeComponent();
-       
     }
 
     private void OpenNewWindow(object sender, RoutedEventArgs e)
@@ -35,7 +34,7 @@ public partial class MainWindow : Window
         var SaveFile = new SaveFilePath();
         Launcher.LaunchUriAsync(new Uri(SaveFile.Get()));
     }
-    
+
     protected override void OnLoaded(RoutedEventArgs e)
     {
         var SaveFile = new SaveFilePath();
@@ -89,7 +88,7 @@ public partial class MainWindow : Window
                 for (int i = 1; i < Stats.Flights + 1; i++)
                 {
                     string Temp = Stats.FlightsList[i].Date;
-                    Temp += " "+ Stats.FlightsList[i].From;
+                    Temp += " " + Stats.FlightsList[i].From;
                     Temp += " -> " + Stats.FlightsList[i].To;
                     Temp += "   " + Stats.FlightsList[i].Plane;
                     Temp += " " + Stats.FlightsList[i].Airline;

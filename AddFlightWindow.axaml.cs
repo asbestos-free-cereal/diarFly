@@ -19,13 +19,7 @@ public partial class AddFlightWindow : Window
         if (Temp != null && Plane.Text != "" && To.Text != "" && From.Text != "" && Airline.Text != "")
         {
             string Date = Temp.ToString().Remove(10);
-            var SaveFile = new SaveFilePath();
-            string JsonData = File.ReadAllText(SaveFile.Get());
-            var Stats = JsonSerializer.Deserialize<FlightStatsStruct>(JsonData);
-            Stats.Flights += 1;
-            Stats.FlightsList.Add(new FlightInfo(Plane.Text, From.Text, To.Text, Date, Airline.Text));
-            var Json = JsonSerializer.Serialize(Stats);
-            File.WriteAllText(SaveFile.Get(), Json);
+            new SaveFileUpdater(Plane.Text, From.Text, To.Text, Date, Airline.Text);
             var Warning = new DataSaved();
             Warning.ShowWarning(OwnerWindow);
         }

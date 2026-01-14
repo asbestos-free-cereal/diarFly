@@ -29,6 +29,7 @@
                 <TextBox x:Name="To" />
 
                 <Button Margin="1 30" Click="SaveData">Save</Button>
+                
             </StackPanel>
         </Panel>
 

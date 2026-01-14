@@ -10,7 +10,7 @@ public class MissingDataWarning
     {
         var Box = MessageBoxManager
             .GetMessageBoxStandard("Error", "Please fill out all fields.",
-                ButtonEnum.Ok, MsBox.Avalonia.Enums.Icon.Error);
+                ButtonEnum.Ok, Icon.Error);
 
         await Box.ShowAsPopupAsync(Owner);
     }

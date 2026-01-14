@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Text.Json;
 using Avalonia.Controls;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Enums;
@@ -27,20 +23,7 @@ namespace diarFly
 
             else if (Result == ButtonResult.Ok)
             {
-                string exePath = Process.GetCurrentProcess().MainModule.FileName;
-
-                var Temp = new FlightStatsStruct
-                {
-                    Flights = 0,
-                    FlightsList = new List<FlightInfo>
-                    {
-                        new FlightInfo("", "", "", "", "")
-                    }
-                };
-                var Json = JsonSerializer.Serialize(Temp);
-                var Path = new SaveFilePath();
-                File.WriteAllText(Path.Get(), Json);
-
+                new SaveFile();
                 Restart(Owner, "Info", "File created.\nThe application will now restart.");
             }
         }

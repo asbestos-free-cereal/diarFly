@@ -9,7 +9,6 @@ public class SaveFilePath
     {
         string Path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 
-
         if (OperatingSystem.IsLinux() || OperatingSystem.IsMacOS() || OperatingSystem.IsFreeBSD())
         {
             Path += "/DiarFlySave.json";
